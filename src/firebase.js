@@ -23,12 +23,12 @@ import {
 //    These values are NOT secret — they're safe to commit. Security comes from
 //    the Firestore rules + the household code, not from hiding these.
 const firebaseConfig = {
-  apiKey: "REPLACE_ME",
-  authDomain: "REPLACE_ME.firebaseapp.com",
-  projectId: "REPLACE_ME",
-  storageBucket: "REPLACE_ME.appspot.com",
-  messagingSenderId: "REPLACE_ME",
-  appId: "REPLACE_ME",
+  apiKey: "AIzaSyB8TraDIXA8Lsj7NtBZ0AnF-kZokv--G_g",
+  authDomain: "wildfit-24682.firebaseapp.com",
+  projectId: "wildfit-24682",
+  storageBucket: "wildfit-24682.firebasestorage.app",
+  messagingSenderId: "424727952203",
+  appId: "1:424727952203:web:abdf1e04cd7f3a924186ce",
 };
 
 // 2) ── The household code ─────────────────────────────────────────────────────
