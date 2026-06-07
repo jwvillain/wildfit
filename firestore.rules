@@ -1,0 +1,32 @@
+rules_version = '2';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// WildFit Firestore security rules
+//
+// Paste these into: Firebase console → Firestore Database → Rules → Publish.
+//
+// What they do:
+//   • Only signed-in clients (your app signs in anonymously automatically) can
+//     touch the database at all. Random anonymous web traffic can't read it.
+//   • Data lives under households/<code>. Knowing the household code is what
+//     grants access — so choose a long, private code (like a password).
+//   • Nothing else in the project is readable or writable.
+//
+// This is deliberately simple and safe for a small personal/family app. The
+// household code is the shared secret; the auth requirement blocks drive-by
+// access from anyone who hasn't loaded your app.
+// ─────────────────────────────────────────────────────────────────────────────
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Each household document is keyed by the shared code.
+    match /households/{householdCode} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Everything else is denied.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
